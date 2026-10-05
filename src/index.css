@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,700;9..144,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+@theme inline {
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Outfit', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  --color-bg: #FAFAF8;
+  --color-surface: #F2F1EE;
+  --color-ink: #0D0D0B;
+  --color-muted: #78756E;
+  --color-accent: #6D28D9;
+  --color-accent-light: #EDE9FE;
+  --color-accent-mid: #A78BFA;
+
+  --color-sleep: #6D28D9;
+  --color-phone: #DB2777;
+  --color-work: #0284C7;
+  --color-commute: #D97706;
+  --color-leisure: #059669;
+  --color-other: #D1D5DB;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-data {
+  font-family: var(--font-mono);
+}
+
+/* Hide scrollbar but allow scrolling */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 2px; }
+
+/* Custom range slider */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+
+[data-theme="dark"] input[type='range'] { background: #252535; }
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  cursor: pointer;
+  box-shadow: 0 0 0 4px var(--color-accent-light);
+  transition: box-shadow 0.15s ease;
+}
+
+input[type='range']::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 6px var(--color-accent-light);
+}
+
+input[type='range']::-webkit-slider-thumb:active {
+  box-shadow: 0 0 0 8px var(--color-accent-light);
+}
+
+[data-theme="dark"] input[type='range']::-webkit-slider-thumb {
+  background: #8B5CF6;
+  box-shadow: 0 0 0 4px #2D1B69;
+}
+[data-theme="dark"] input[type='range']::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 7px #2D1B69;
+}
+input[type='range'].pink::-webkit-slider-thumb { background: #DB2777; box-shadow: 0 0 0 4px #FCE7F3; }
+input[type='range'].blue::-webkit-slider-thumb { background: #0284C7; box-shadow: 0 0 0 4px #E0F2FE; }
+input[type='range'].amber::-webkit-slider-thumb { background: #D97706; box-shadow: 0 0 0 4px #FEF3C7; }
+input[type='range'].green::-webkit-slider-thumb { background: #059669; box-shadow: 0 0 0 4px #D1FAE5; }
+
+input[type='range']::-moz-range-thumb {
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-accent);
+  cursor: pointer;
+  box-shadow: 0 0 0 4px var(--color-accent-light);
+}
+
+[data-theme="dark"] input[type='range']::-moz-range-thumb {
+  background: #8B5CF6;
+  box-shadow: 0 0 0 4px #2D1B69;
+}
+
+.slider-step-button {
+  display: grid;
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid;
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.slider-step-button:hover:not(:disabled) {
+  transform: scale(1.06);
+}
+
+.slider-step-button:disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+
+/* Page transition */
+.page-enter {
+  animation: pageIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Number counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.count-anim {
+  animation: countUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Progress bar fill */
+@keyframes barFill {
+  from { width: 0%; }
+}
+
+.bar-fill {
+  animation: barFill 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}

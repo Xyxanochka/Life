@@ -1,0 +1,10 @@
+{
+  "description": "Interactive tool calculates past and future time spent on daily activities, helping users visualize habits and explore time-saving lifestyle changes.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
